@@ -19,10 +19,13 @@ const handleFormSubmit = function(event) {
 
     const endangeredAnimalsList = document.querySelector("#endangered-list");
     const newListItem = document.createElement("li");
-    newListItem.textContent = `${name} ${species} ${continent}`
+    newListItem.textContent = `Name: ${name} | Species: ${species} | Continent: ${continent}`
     endangeredAnimalsList.appendChild(newListItem);
-}
+
+    this.reset();
+};
 
 const handleDeleteClick = function(event) {
-
+    const endangeredAnimalsList = document.querySelector("#endangered-list");
+    endangeredAnimalsList.innerHTML = "";
 }
