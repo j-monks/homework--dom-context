@@ -10,8 +10,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const handleFormSubmit = function(event) {
     event.preventDefault();
+
+    const name = this.name.value;
+    const species = this.species.value;
+    const continent = this.continent.value;
+    
+    console.log("form values:", name, species, continent);
+
+    const endangeredAnimalsList = document.querySelector("#endangered-list");
+    const newListItem = document.createElement("li");
+    newListItem.textContent = `${name} ${species} ${continent}`
+    endangeredAnimalsList.appendChild(newListItem);
 }
 
 const handleDeleteClick = function(event) {
-    
+
 }
