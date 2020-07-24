@@ -1,11 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("JavaScript loaded");
 
-    const form = document.querySelector("#new-item-form");
-    form.addEventListener("submit", handleFormSubmit);
-
-    const deleteAllButton = document.querySelector("#delete-all");
-    deleteAllButton.addEventListener("click", handleDeleteClick);
+    const form = $addEvent("#new-item-form", "submit", handleFormSubmit);
+    const deleteAllButton = $addEvent("#delete-all", "click", handleDeleteClick);
 });
 
 const handleFormSubmit = function(event) {
@@ -13,12 +10,10 @@ const handleFormSubmit = function(event) {
 
     const name = this.name.value;
     const species = this.species.value;
-    const continent = this.continent.value;
-    
-    console.log("form values:", name, species, continent);
+    const continent = this.continent.value
 
     const endangeredAnimalsList = $("#endangered-list");
-    const newListItem = document.createElement("li");
+    const newListItem = $createEle("li");
     newListItem.textContent = `Name: ${name} | Species: ${species} | Continent: ${continent}`
     endangeredAnimalsList.appendChild(newListItem);
 
@@ -34,3 +29,14 @@ const handleDeleteClick = function(event) {
 function $(seletor) {
     return document.querySelector(seletor);
 };
+
+// creates a HTML element helper function
+function $createEle(element) {
+    return document.createElement("li");
+};
+
+// addEventListener to queried element
+function $addEvent(selector, type, nameOfCallBack) {
+    element = $(selector);
+    return element.addEventListener(type, nameOfCallBack);
+}
