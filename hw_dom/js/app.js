@@ -17,7 +17,7 @@ const handleFormSubmit = function(event) {
     
     console.log("form values:", name, species, continent);
 
-    const endangeredAnimalsList = document.querySelector("#endangered-list");
+    const endangeredAnimalsList = $("#endangered-list");
     const newListItem = document.createElement("li");
     newListItem.textContent = `Name: ${name} | Species: ${species} | Continent: ${continent}`
     endangeredAnimalsList.appendChild(newListItem);
@@ -26,6 +26,11 @@ const handleFormSubmit = function(event) {
 };
 
 const handleDeleteClick = function(event) {
-    const endangeredAnimalsList = document.querySelector("#endangered-list");
+    const endangeredAnimalsList = $("#endangered-list");
     endangeredAnimalsList.innerHTML = "";
 }
+
+// selects a HTML element helper function
+function $(seletor) {
+    return document.querySelector(seletor);
+};
