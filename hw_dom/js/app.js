@@ -11,23 +11,24 @@ const handleFormSubmit = function(event) {
 
     const name = this.name.value;
     const species = this.species.value;
-    const continent = this.continent.value
+    const continent = this.continent.value;
+    const remaining = this.remaining.value;
 
-    const endangeredAnimalsList = $("#endangered-list");
+    const endangeredAnimalsList = $select("#endangered-list");
     const newListItem = $createEle("li");
-    newListItem.textContent = `Name: ${name} | Species: ${species} | Continent: ${continent}`
+    newListItem.textContent = `Name: ${name} | Species: ${species} | Continent: ${continent} | ${remaining}`
     endangeredAnimalsList.appendChild(newListItem);
 
     this.reset();
 };
 
 const handleDeleteClick = function(event) {
-    const endangeredAnimalsList = $("#endangered-list");
+    const endangeredAnimalsList = $select("#endangered-list");
     endangeredAnimalsList.innerHTML = "";
 }
 
 // selects a HTML element helper function
-function $(seletor) {
+function $select(seletor) {
     return document.querySelector(seletor);
 };
 
@@ -38,6 +39,6 @@ function $createEle(element) {
 
 // addEventListener to queried element
 function $addEvent(selector, type, nameOfCallBack) {
-    element = $(selector);
+    element = $select(selector);
     return element.addEventListener(type, nameOfCallBack);
 }
