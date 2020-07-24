@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const deleteAllButton = $addEvent("#delete-all", "click", handleDeleteClick);
 });
 
+
 const handleFormSubmit = function(event) {
     event.preventDefault();
 
