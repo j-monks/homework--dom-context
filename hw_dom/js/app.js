@@ -7,3 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const deleteAllButton = document.querySelector("#delete-all");
     deleteAllButton.addEventListener("click", handleDeleteClick);
 });
+
+const handleFormSubmit = function(event) {
+    event.preventDefault();
+}
+
+const handleDeleteClick = function(event) {
+    
+}
